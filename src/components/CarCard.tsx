@@ -117,7 +117,7 @@ export default function CarCard({
               <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
                 Giá xe
               </p>
-              <p className="text-[#1a4fa0] font-black text-lg leading-none">
+              <p className="text-gray-900 font-black text-lg leading-none">
                 {formatPrice(priceFrom)}{" "}
                 <span className="text-sm font-semibold">đ</span>
               </p>

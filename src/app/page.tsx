@@ -25,7 +25,7 @@ function PriceTicker() {
   const items = CARS.map((c) => `${c.name}  ·  ${formatPrice(c.priceFrom)} đ`);
   const doubled = [...items, ...items];
   return (
-    <div className="overflow-hidden bg-[#0f2344] border-y border-white/10 py-3 select-none">
+    <div className="overflow-hidden bg-[#111111] border-y border-white/8 py-3 select-none">
       <motion.div
         className="flex gap-10 whitespace-nowrap"
         animate={{ x: ["0%", "-50%"] }}
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* ── Stats bar ── */}
-      <section style={{ background: "linear-gradient(90deg, #060d1f 0%, #0f2344 50%, #060d1f 100%)" }}>
+      <section style={{ background: "#111111" }}>
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/10">
             {STATS.map((s, i) => (
@@ -111,7 +111,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
               >
-                <p className="text-3xl md:text-4xl font-black text-yellow-400 leading-none">{s.value}</p>
+                <p className="text-3xl md:text-4xl font-black text-white leading-none">{s.value}</p>
                 <p className="text-white/50 text-xs mt-1.5 tracking-wide">{s.label}</p>
               </motion.div>
             ))}
@@ -252,7 +252,7 @@ export default function Home() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-[#0f2344]/40" />
+            <div className="absolute inset-0 bg-black/50" />
             <div className="absolute bottom-6 left-6 text-white">
               <p className="text-xs font-bold uppercase tracking-widest text-yellow-400 mb-1">Đại lý chính hãng</p>
               <p className="text-2xl font-black leading-tight">VinFast<br />Lê Trọng Tấn</p>
@@ -330,7 +330,7 @@ export default function Home() {
               <motion.div
                 key={c.num}
                 variants={fadeInUp}
-                className="bg-white px-6 py-8 group hover:bg-[#0f2344] transition-colors duration-300"
+                className="bg-white px-6 py-8 group hover:bg-[#111111] transition-colors duration-300"
               >
                 <p className="text-6xl font-black text-gray-100 group-hover:text-white/10 leading-none mb-4 transition-colors">
                   {c.num}
@@ -356,7 +356,7 @@ export default function Home() {
       {/* ── CTA Banner ── */}
       <section
         className="relative overflow-hidden py-20 px-4"
-        style={{ background: "linear-gradient(135deg, #060d1f 0%, #0f2344 50%, #0d1830 100%)" }}
+        style={{ background: "#111111" }}
       >
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -375,10 +375,10 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-yellow-400 text-xs font-bold uppercase tracking-[0.25em] mb-4 flex items-center justify-center gap-3">
-            <span className="w-8 h-px bg-yellow-400/50" />
+          <p className="text-white/40 text-xs font-bold uppercase tracking-[0.25em] mb-4 flex items-center justify-center gap-3">
+            <span className="w-8 h-px bg-white/20" />
             Đại lý chính hãng tại Hà Nội
-            <span className="w-8 h-px bg-yellow-400/50" />
+            <span className="w-8 h-px bg-white/20" />
           </p>
           <h2 className="text-4xl md:text-5xl font-black mb-4 leading-tight tracking-tight">
             ĐĂNG KÝ NHẬN<br />

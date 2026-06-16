@@ -7,7 +7,7 @@ export default function Footer() {
   const allCars = [...CARS.slice(0, 4), ...SERVICE_CARS.slice(0, 2)];
 
   return (
-    <footer style={{ background: "linear-gradient(180deg, #060d1f 0%, #030810 100%)" }}>
+    <footer style={{ background: "linear-gradient(180deg, #111111 0%, #0a0a0a 100%)" }}>
       {/* Main grid */}
       <div className="max-w-7xl mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

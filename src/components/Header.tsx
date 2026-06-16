@@ -67,12 +67,12 @@ export default function Header() {
             : ""
         }`}
         style={{
-          backgroundColor: scrolled ? "rgba(15,35,68,0.97)" : "#0f2344",
+          backgroundColor: scrolled ? "rgba(10,10,10,0.97)" : "#111111",
         }}
       >
         {/* Dual accent line */}
         <div className="flex h-[3px]">
-          <div className="flex-1 bg-[#1a4fa0]" />
+          <div className="flex-1 bg-[#333333]" />
           <div className="flex-1 bg-[#db2a2a]" />
         </div>
         <div className="max-w-7xl mx-auto px-4">
@@ -123,9 +123,9 @@ export default function Header() {
                         transition={{ duration: 0.15 }}
                         className="absolute top-full left-0 min-w-[180px] overflow-hidden z-50 rounded-xl"
                         style={{
-                          background: "linear-gradient(160deg, #0f2344 0%, #0d1a35 100%)",
-                          border: "1px solid rgba(255,255,255,0.1)",
-                          boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
+                          background: "linear-gradient(160deg, #111111 0%, #0a0a0a 100%)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                          boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
                         }}
                       >
                         {item.children.map((child) => (
@@ -185,7 +185,7 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden overflow-hidden bg-[#0a1a36] border-t border-white/10"
+              className="lg:hidden overflow-hidden bg-[#0a0a0a] border-t border-white/10"
             >
               <nav className="px-4 py-3 space-y-1">
                 {NAV_ITEMS.map((item) => (

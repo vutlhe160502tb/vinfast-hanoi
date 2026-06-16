@@ -123,7 +123,7 @@ export default function HeroSlider() {
           <motion.p
             variants={textVariants}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-yellow-400 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-3"
+            className="text-white/60 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-3"
           >
             VinFast Lê Trọng Tấn
           </motion.p>
