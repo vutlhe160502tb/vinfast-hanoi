@@ -68,9 +68,13 @@ export default function Header() {
         }`}
         style={{
           backgroundColor: scrolled ? "rgba(15,35,68,0.97)" : "#0f2344",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
         }}
       >
+        {/* Dual accent line */}
+        <div className="flex h-[3px]">
+          <div className="flex-1 bg-[#1a4fa0]" />
+          <div className="flex-1 bg-[#db2a2a]" />
+        </div>
         <div className="max-w-7xl mx-auto px-4">
           {/* Top row */}
           <div className="flex items-center justify-between h-[68px]">
