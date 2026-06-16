@@ -62,22 +62,22 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-md"
-            : ""
+          scrolled ? "shadow-[0_2px_20px_rgba(0,0,0,0.08)]" : ""
         }`}
         style={{
-          backgroundColor: scrolled ? "rgba(10,10,10,0.97)" : "#111111",
+          backgroundColor: scrolled ? "rgba(255,255,255,0.97)" : "#ffffff",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: "1px solid #e8e8e8",
         }}
       >
-        {/* Dual accent line */}
+        {/* Dual accent line top */}
         <div className="flex h-[3px]">
-          <div className="flex-1 bg-[#333333]" />
+          <div className="flex-1 bg-[#e0e0e0]" />
           <div className="flex-1 bg-[#db2a2a]" />
         </div>
+
         <div className="max-w-7xl mx-auto px-4">
-          {/* Top row */}
-          <div className="flex items-center justify-between h-[68px]">
+          <div className="flex items-center justify-between h-[66px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
@@ -85,7 +85,7 @@ export default function Header() {
                 alt="VinFast"
                 width={120}
                 height={34}
-                className="h-9 w-auto object-contain"
+                className="h-9 w-auto object-contain brightness-0"
                 priority
               />
             </Link>
@@ -95,11 +95,9 @@ export default function Header() {
               {NAV_ITEMS.map((item) => (
                 <div key={item.label} className="relative">
                   <button
-                    className="flex items-center gap-1 px-3.5 py-2 text-white/80 text-[13px] font-medium tracking-wide hover:text-white relative group/nav transition-colors"
+                    className="flex items-center gap-1 px-3.5 py-2 text-gray-600 text-[13px] font-semibold tracking-wide hover:text-gray-900 relative group/nav transition-colors"
                     onClick={() =>
-                      setOpenDropdown(
-                        openDropdown === item.label ? null : item.label
-                      )
+                      setOpenDropdown(openDropdown === item.label ? null : item.label)
                     }
                   >
                     {item.label}
@@ -111,7 +109,7 @@ export default function Header() {
                         }`}
                       />
                     )}
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover/nav:w-4/5 h-[2px] bg-[#db2a2a] rounded-full transition-all duration-300" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover/nav:w-4/5 h-[2px] bg-[#db2a2a] transition-all duration-300" />
                   </button>
 
                   <AnimatePresence>
@@ -121,18 +119,18 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -6, scale: 0.97 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 min-w-[180px] overflow-hidden z-50 rounded-xl"
+                        className="absolute top-full left-0 min-w-[180px] overflow-hidden z-50"
                         style={{
-                          background: "linear-gradient(160deg, #111111 0%, #0a0a0a 100%)",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                          boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
+                          background: "#ffffff",
+                          border: "1px solid #e8e8e8",
+                          boxShadow: "0 16px 40px rgba(0,0,0,0.1)",
                         }}
                       >
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
+                            className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0"
                             onClick={() => setOpenDropdown(null)}
                           >
                             {child.label}
@@ -146,26 +144,24 @@ export default function Header() {
 
               <Link
                 href="/mua-xe-tra-gop"
-                className="relative px-3.5 py-2 text-white/80 text-[13px] font-medium tracking-wide hover:text-white group/nav transition-colors"
+                className="relative px-3.5 py-2 text-gray-600 text-[13px] font-semibold tracking-wide hover:text-gray-900 group/nav transition-colors"
               >
                 MUA XE TRẢ GÓP
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover/nav:w-4/5 h-[2px] bg-[#db2a2a] rounded-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover/nav:w-4/5 h-[2px] bg-[#db2a2a] transition-all duration-300" />
               </Link>
             </nav>
 
-            {/* Phone button */}
+            {/* Phone + hamburger */}
             <div className="flex items-center gap-3">
               <a
                 href="tel:0976633054"
-                className="hidden sm:flex items-center gap-2 bg-[#db2a2a] text-white text-sm font-bold px-5 py-2 rounded-full hover:bg-[#b91c1c] transition-all duration-300 hover:shadow-[0_0_20px_rgba(219,42,42,0.5)]"
+                className="hidden sm:flex items-center gap-2 bg-[#db2a2a] text-white text-sm font-bold px-5 py-2 rounded-full hover:bg-[#b91c1c] transition-all duration-300"
               >
                 <Phone size={13} />
                 0976633054
               </a>
-
-              {/* Mobile menu toggle */}
               <button
-                className="lg:hidden text-white p-2"
+                className="lg:hidden text-gray-700 p-2"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Menu"
               >
@@ -173,9 +169,6 @@ export default function Header() {
               </button>
             </div>
           </div>
-
-          {/* Second row - MUA XE TRẢ GÓP highlighted separately (desktop only) */}
-          {/* Already included above */}
         </div>
 
         {/* Mobile Menu */}
@@ -185,24 +178,22 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden overflow-hidden bg-[#0a0a0a] border-t border-white/10"
+              className="lg:hidden overflow-hidden bg-white border-t border-gray-100"
             >
               <nav className="px-4 py-3 space-y-1">
                 {NAV_ITEMS.map((item) => (
                   <div key={item.label}>
                     <button
-                      className="w-full flex items-center justify-between py-3 text-white text-sm font-medium border-b border-white/10"
+                      className="w-full flex items-center justify-between py-3 text-gray-700 text-sm font-semibold border-b border-gray-100"
                       onClick={() =>
-                        setMobileSubmenu(
-                          mobileSubmenu === item.label ? null : item.label
-                        )
+                        setMobileSubmenu(mobileSubmenu === item.label ? null : item.label)
                       }
                     >
                       {item.label}
                       {item.children && (
                         <ChevronDown
                           size={14}
-                          className={`transition-transform ${
+                          className={`transition-transform text-gray-400 ${
                             mobileSubmenu === item.label ? "rotate-180" : ""
                           }`}
                         />
@@ -220,7 +211,7 @@ export default function Header() {
                             <Link
                               key={child.label}
                               href={child.href}
-                              className="block pl-4 py-2.5 text-sm text-white/80 hover:text-yellow-300 border-b border-white/5"
+                              className="block pl-4 py-2.5 text-sm text-gray-500 hover:text-[#db2a2a] border-b border-gray-50"
                               onClick={() => {
                                 setMobileOpen(false);
                                 setMobileSubmenu(null);
@@ -236,14 +227,14 @@ export default function Header() {
                 ))}
                 <Link
                   href="/mua-xe-tra-gop"
-                  className="block py-3 text-white text-sm font-medium border-b border-white/10"
+                  className="block py-3 text-gray-700 text-sm font-semibold border-b border-gray-100"
                   onClick={() => setMobileOpen(false)}
                 >
                   MUA XE TRẢ GÓP
                 </Link>
                 <a
                   href="tel:0976633054"
-                  className="flex items-center gap-2 py-3 text-[#db2a2a] text-sm font-semibold"
+                  className="flex items-center gap-2 py-3 text-[#db2a2a] text-sm font-bold"
                 >
                   <Phone size={14} />
                   0976633054

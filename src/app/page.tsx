@@ -25,14 +25,14 @@ function PriceTicker() {
   const items = CARS.map((c) => `${c.name}  ·  ${formatPrice(c.priceFrom)} đ`);
   const doubled = [...items, ...items];
   return (
-    <div className="overflow-hidden bg-[#111111] border-y border-white/8 py-3 select-none">
+    <div className="overflow-hidden border-y border-gray-200 py-3 select-none" style={{ background: "#f0eeeb" }}>
       <motion.div
         className="flex gap-10 whitespace-nowrap"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ repeat: Infinity, duration: 28, ease: "linear" }}
       >
         {doubled.map((item, i) => (
-          <span key={i} className="text-white/60 text-xs font-medium tracking-widest shrink-0">
+          <span key={i} className="text-gray-500 text-xs font-semibold tracking-widest shrink-0">
             {item}
           </span>
         ))}
@@ -99,9 +99,9 @@ export default function Home() {
       </section>
 
       {/* ── Stats bar ── */}
-      <section style={{ background: "#111111" }}>
+      <section style={{ background: "#f5f4f0" }}>
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-gray-200">
             {STATS.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -111,8 +111,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
               >
-                <p className="text-3xl md:text-4xl font-black text-white leading-none">{s.value}</p>
-                <p className="text-white/50 text-xs mt-1.5 tracking-wide">{s.label}</p>
+                <p className="text-3xl md:text-4xl font-black text-gray-900 leading-none">{s.value}</p>
+                <p className="text-gray-400 text-xs mt-1.5 tracking-wide">{s.label}</p>
               </motion.div>
             ))}
           </div>
@@ -330,20 +330,20 @@ export default function Home() {
               <motion.div
                 key={c.num}
                 variants={fadeInUp}
-                className="bg-white px-6 py-8 group hover:bg-[#111111] transition-colors duration-300"
+                className="bg-white px-6 py-8 group hover:bg-[#db2a2a] transition-colors duration-300"
               >
-                <p className="text-6xl font-black text-gray-100 group-hover:text-white/10 leading-none mb-4 transition-colors">
+                <p className="text-6xl font-black text-gray-100 group-hover:text-white/20 leading-none mb-4 transition-colors">
                   {c.num}
                 </p>
                 <p className="text-[11px] font-black uppercase tracking-widest text-gray-900 group-hover:text-white mb-3 transition-colors">
                   {c.title}
                 </p>
-                <p className="text-gray-500 group-hover:text-white/60 text-xs leading-relaxed mb-6 transition-colors">
+                <p className="text-gray-500 group-hover:text-white/80 text-xs leading-relaxed mb-6 transition-colors">
                   {c.desc}
                 </p>
                 <Link
                   href={c.href}
-                  className="text-[11px] font-black uppercase tracking-widest text-[#db2a2a] group-hover:text-yellow-400 transition-colors"
+                  className="text-[11px] font-black uppercase tracking-widest text-[#db2a2a] group-hover:text-white transition-colors"
                 >
                   {c.cta}
                 </Link>
@@ -356,17 +356,17 @@ export default function Home() {
       {/* ── CTA Banner ── */}
       <section
         className="relative overflow-hidden py-20 px-4"
-        style={{ background: "#111111" }}
+        style={{ background: "#db2a2a" }}
       >
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{
-            backgroundImage: "repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)",
+            backgroundImage: "repeating-linear-gradient(45deg,#000 0,#000 1px,transparent 0,transparent 50%)",
             backgroundSize: "20px 20px",
           }}
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(219,42,42,0.15) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(255,255,255,0.12) 0%, transparent 70%)" }}
         />
         <motion.div
           className="relative z-10 max-w-3xl mx-auto text-center text-white"
@@ -375,16 +375,16 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-white/40 text-xs font-bold uppercase tracking-[0.25em] mb-4 flex items-center justify-center gap-3">
-            <span className="w-8 h-px bg-white/20" />
+          <p className="text-white/60 text-xs font-bold uppercase tracking-[0.25em] mb-4 flex items-center justify-center gap-3">
+            <span className="w-8 h-px bg-white/40" />
             Đại lý chính hãng tại Hà Nội
-            <span className="w-8 h-px bg-white/20" />
+            <span className="w-8 h-px bg-white/40" />
           </p>
           <h2 className="text-4xl md:text-5xl font-black mb-4 leading-tight tracking-tight">
             ĐĂNG KÝ NHẬN<br />
-            <span className="text-[#db2a2a]">BÁO GIÁ NGAY.</span>
+            BÁO GIÁ NGAY.
           </h2>
-          <p className="text-white/50 mb-10 text-sm max-w-xl mx-auto">
+          <p className="text-white/70 mb-10 text-sm max-w-xl mx-auto">
             Tư vấn miễn phí · Hỗ trợ vay trả góp · Giao xe tận nơi
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -392,7 +392,7 @@ export default function Home() {
               onClick={() => setQuoteOpen(true)}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-[#db2a2a] text-white font-black px-10 py-4 text-sm tracking-widest hover:bg-[#b91c1c] transition-colors"
+              className="bg-white text-[#db2a2a] font-black px-10 py-4 text-sm tracking-widest hover:bg-gray-50 transition-colors"
             >
               NHẬN BÁO GIÁ NGAY
             </motion.button>
@@ -400,7 +400,7 @@ export default function Home() {
               href="tel:0976633054"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="border border-white/30 hover:border-white text-white font-black px-10 py-4 text-sm tracking-widest transition-colors"
+              className="border-2 border-white/60 hover:border-white text-white font-black px-10 py-4 text-sm tracking-widest transition-colors"
             >
               GỌI 0976.633.054
             </motion.a>
